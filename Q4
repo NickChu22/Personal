@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+string digit_to_color(int digit);
+
+int main()
+{
+string temp, temp2;
+int resistance = NULL;
+
+cout << "Enter the resistance value measured in Ohms: ";
+
+if (!(cin >> resistance))
+{
+cerr << "input is incorrect type,\nplease exit program and try again\n\n";
+exit(66);
+}
+
+temp = to_string(resistance);
+
+for (int x = 0; x <= (temp.length() - 1); x++)
+{
+temp2 = temp[x];
+
+//black time
+if ((stoi(temp2) == 0) && (x == 0))
+{
+
+cout << "black ";
+break;
+
+}
+
+//to switches
+if ((stoi(temp2) == 0) && (x != 0))
+{
+int zero = (temp.length() - (x));
+cout << digit_to_color(zero);
+break;
+}
+cout << digit_to_color(stoi(temp2));
+}
+return 0;
+}
+
+string digit_to_color(int digit)
+{
+switch (digit)
+{
+case 0:
+return "black ";
+
+case 1:
+return "brown ";
+
+case 2:
+return "red ";
+
+case 3:
+return "orange ";
+
+case 4:
+return "yellow ";
+
+case 5:
+return "green ";
+
+case 6:
+return "blue ";
+
+case 7:
+return "violet ";
+
+case 8:
+return "grey ";
+
+case 9:
+return "white ";
+
+default:
+break;
+}
+return "Some error, please exit program and try again";
