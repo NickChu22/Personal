@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <fstream>
+#include <time.h>
+#include <cstdlib>
+using namespace std;
+
+/*
+bool ifPalindromic(unsigned int input);
+
+int main()
+{
+bool n;
+n = ifPalindromic(505);
+
+if (n == 1)
+cout << "its a palindrome";
+if (n == 0)
+cout << "its not a palindrome";
+
+
+
+}
+*/
+
+bool ifPalindromic(unsigned int input)
+{
+
+int v1 = input;
+int v2;
+int v3 = 0;
+
+do
+{
+//get digit in n-1's place, loop through as necessary
+v2 = (v1 % 10);
+v3 = ((v3 * 10) + v2);
+v1 = (v1 / 10);
+}
+while (!(v1 == 0));
+
+if (input == v3)
+{
+return true;
+}
+else
+{
+return false;
+}
+
