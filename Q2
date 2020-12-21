@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <fstream>
+#include <time.h>
+#include <cstdlib>
+using namespace std;
+
+//data stored
+struct DayTemps
+{
+int day;
+float hi_temp;
+float lo_temp;
+};
+//function to celsus
+float** fToCelsius(DayTemps array[], int arrElem)
+{
+
+int elements = arrElem;
+float** Array2;
+
+Array2 = new float* [elements];
+if (Array2 == nullptr)
+{
+cerr << "error in assigning memory.";
+}
+
+for (int x = 0; x < elements; x++)
+{
+Array2[x] = new float[2];
+}
+
+for (int j = 0; j < elements; j++)
+{
+Array2[j][0] = (5.0 * (array[j].hi_temp - 32.0) / 9.0);
+Array2[j][1] = (5.0 * (array[j].lo_temp - 32.0) / 9.0);
+}
+
+return Array2;
+
+}
